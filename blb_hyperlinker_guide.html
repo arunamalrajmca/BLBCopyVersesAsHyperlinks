@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLB Auto Hyperlinker - Setup & User Guide</title>
+    <style>
+        :root {
+            --primary-color: #60a5fa;
+            --accent-color: #38bdf8;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --success-bg: #064e3b;
+            --success-border: #059669;
+            --success-text: #a7f3d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color);
+        }
+
+        .header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #0369a1;
+            color: #e0f2fe;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 19px;
+            margin-top: 32px;
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p, li {
+            font-size: 15px;
+            color: var(--text-main);
+        }
+
+        ul, ol {
+            padding-left: 22px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background-color: #0f172a;
+            color: #38bdf8;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            border: 1px solid #334155;
+        }
+
+        .step-box {
+            background-color: #0f172a;
+            border-left: 4px solid var(--accent-color);
+            padding: 16px 20px;
+            margin: 14px 0;
+            border-radius: 0 8px 8px 0;
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .step-box h3 {
+            margin-bottom: 6px;
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+
+        .note-box {
+            background-color: var(--success-bg);
+            border: 1px solid var(--success-border);
+            color: var(--success-text);
+            padding: 16px;
+            border-radius: 8px;
+            margin: 24px 0;
+            font-size: 14.5px;
+        }
+
+        .compat-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .compat-table th, .compat-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .compat-table th {
+            background-color: #0f172a;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .status-yes {
+            color: #4ade80;
+            font-weight: 600;
+        }
+
+        .status-no {
+            color: #f87171;
+            font-weight: 600;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>BLB Auto Hyperlinker</h1>
+        <p>User Setup & Functionality Guide</p>
+        <span class="badge">Google Docs & MS Word Compatible</span>
+    </div>
+
+    <h2>1. Overview & Functionality</h2>
+    <p>
+        <strong>BLB Auto Hyperlinker</strong> is a custom browser extension for 
+        <a href="https://www.blueletterbible.org/" target="_blank" style="color: var(--accent-color);">Blue Letter Bible (BLB)</a>. 
+        It hooks into BLB's built-in <strong>Copy</strong> buttons so that copied scripture passages automatically turn verse references (e.g., <em>Rom 8:28</em>, <em>1Co 13:2</em>, <em>John 3:16-17</em>) into live, clickable links when pasted into document editors.
+    </p>
+
+    <div style="margin-top: 14px;">
+        <ul>
+            <li><strong>Automatic Hyperlinking:</strong> Converts plain scripture references into clickable links pointing directly to the BLB passage.</li>
+            <li><strong>Built-In Button Integration:</strong> Triggers automatically whenever you click Blue Letter Bible's native copy options/buttons.</li>
+            <li><strong>Rich Formatting:</strong> Formats clipboard data so Google Docs and Microsoft Word display active hyperlinks on paste.</li>
+        </ul>
+    </div>
+
+    <h2>2. Installation Steps (Brave / Chrome)</h2>
+
+    <div class="step-box">
+        <h3>Step 1: Open Extensions Manager</h3>
+        <p>In your browser address bar, type <code>brave://extensions/</code> (or <code>chrome://extensions/</code>) and press Enter.</p>
+    </div>
+
+    <div class="step-box">
+        <h3>Step 2: Enable Developer Mode</h3>
+        <p>Toggle the <strong>Developer mode</strong> switch in the top-right corner to <strong>ON</strong>.</p>
+    </div>
+
+    <div class="step-box">
+        <h3>Step 3: Load Unpacked Extension</h3>
+        <p>Click <strong>Load unpacked</strong> on the top-left and select your extension folder (<code>blb-hyperlinker</code>).</p>
+    </div>
+
+    <div class="step-box">
+        <h3>Step 4: Grant Site Access Permissions</h3>
+        <p>Click <strong>Details</strong> on the extension card &rarr; set <strong>Site permissions</strong> to <strong>"On all sites"</strong> (or allow on <code>blueletterbible.org</code>).</p>
+    </div>
+
+    <h2>3. How to Use</h2>
+    <ol>
+        <li>Open <a href="https://www.blueletterbible.org/" target="_blank" style="color: var(--accent-color);">blueletterbible.org</a> and search for any chapter or passage.</li>
+        <li>Hard refresh the page (<code>Ctrl + Shift + R</code>) after installing/reloading the extension.</li>
+        <li>Click any of Blue Letter Bible's built-in <strong>Copy</strong> buttons inside the verse tools.</li>
+        <li>Open <strong>Google Docs</strong> or <strong>Microsoft Word</strong>.</li>
+        <li>Press <code>Ctrl + V</code> (standard paste). The scripture text will paste with clickable verse links.</li>
+    </ol>
+
+    <h2>4. Document Compatibility</h2>
+    <table class="compat-table">
+        <thead>
+            <tr>
+                <th>Target Application</th>
+                <th>Hyperlink Support</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Google Docs</strong></td>
+                <td class="status-yes">Supported</td>
+                <td>Pastes with active hyperlinks using <code>Ctrl + V</code>.</td>
+            </tr>
+            <tr>
+                <td><strong>Microsoft Word (Desktop & Web)</strong></td>
+                <td class="status-yes">Supported</td>
+                <td>Natively preserves HTML clipboard links on paste.</td>
+            </tr>
+            <tr>
+                <td><strong>Gmail / Webmail Editors</strong></td>
+                <td class="status-yes">Supported</td>
+                <td>Renders rich text formatting with live links.</td>
+            </tr>
+            <tr>
+                <td><strong>WordPad</strong></td>
+                <td class="status-no">Not Supported</td>
+                <td>WordPad only accepts plain text/RTF and strips HTML links.</td>
+            </tr>
+            <tr>
+                <td><strong>Notepad / Plain Text Editors</strong></td>
+                <td class="status-no">Not Supported</td>
+                <td>Plain text editors do not support hyperlinked text.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="note-box">
+        <strong>Tip:</strong> Always use standard paste (<code>Ctrl + V</code>). Using "Paste as plain text" (<code>Ctrl + Shift + V</code>) will remove all links and formatting.
+    </div>
+
+    <div class="footer">
+        BLB Auto Hyperlinker Guide
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "BLB Auto Hyperlinker",
+  "version": "4.0",
+  "description": "Hyperlinks Blue Letter Bible references when pasting into Google Docs.",
+  "permissions": ["clipboardWrite", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.blueletterbible.org/*",
+        "https://blueletterbible.org/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
